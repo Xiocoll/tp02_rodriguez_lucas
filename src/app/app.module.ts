@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+
 
 import { FormControl } from '@angular/forms';
 
@@ -13,20 +15,24 @@ import { RouterModule, Routes } from '@angular/router';
 import { ClientListComponent } from './client-list/client-list.component';
 import { PhonePipe } from './phone.pipe';
 import { TestStringDirective } from './test-string.directive';
+import { ProduitListComponent } from './produit-list/produit-list.component';
+import { ProduitService } from './produit.service';
+import { ErrorDirective } from './error.directive';
 
 const appRoutes: Routes = [
   {path: 'clients', component: ClientListComponent},
   {path: 'formulaire', component: FormulaireComponent},
   {path: 'tetiere', component: TetiereComponent},
   {path: 'footer', component: FooterComponent},
-  {path: '', component: FormulaireComponent}
+  {path: 'produits', component: ProduitListComponent},
+  {path: '', component: ProduitListComponent}
 
 ];
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, RouterModule.forRoot(appRoutes), ReactiveFormsModule ],
-  declarations: [ AppComponent, TetiereComponent, FooterComponent, FormulaireComponent, ClientListComponent, PhonePipe, TestStringDirective],
+  imports:      [ BrowserModule, FormsModule, RouterModule.forRoot(appRoutes), ReactiveFormsModule, HttpClientModule ],
+  declarations: [ AppComponent, TetiereComponent, FooterComponent, FormulaireComponent, ClientListComponent, PhonePipe, TestStringDirective, ProduitListComponent, ErrorDirective],
   bootstrap:    [ AppComponent ],
-  providers: [ClientService]
+  providers: [ClientService, ProduitService]
 })
 export class AppModule { }

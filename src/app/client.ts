@@ -1,12 +1,4 @@
 export class Client {
- /* nom:string;
-  prenom:string;
-  adresse:string;
-  codePostal:string;
-  ville:string;
-  telephone:string;
-  mail:string;
-  password:string;*/
 
   constructor(public nom:string,  public prenom:string, public adresse:string, public codePostal:string, public ville:string, public telephone:string, public mail:string, public civilite:string, public login:string, public password:string, public password2:string)
   {
